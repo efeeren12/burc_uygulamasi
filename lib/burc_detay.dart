@@ -1,24 +1,9 @@
 import 'package:burc_uygulamasi/model/burc.dart';
 import 'package:flutter/material.dart';
-import 'package:palette_generator/palette_generator.dart';
 
-class BurcDetay extends StatefulWidget {
+class BurcDetay extends StatelessWidget {
   final Burc secilenBurc;
   const BurcDetay({required this.secilenBurc, Key? key}) : super(key: key);
-
-  @override
-  State<BurcDetay> createState() => _BurcDetayState();
-}
-
-class _BurcDetayState extends State<BurcDetay> {
-  Color appBarRengi = Colors.transparent;
-  late PaletteGenerator _generator;
-
-  @override
-  void initState() {
-    super.initState();
-    appBarRengiBul();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +12,7 @@ class _BurcDetayState extends State<BurcDetay> {
         slivers: [
           SliverAppBar(
             leading: IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.white, size: 35),
+              icon: Icon(Icons.arrow_back, color: Colors.white, size: 32),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -35,32 +20,56 @@ class _BurcDetayState extends State<BurcDetay> {
             expandedHeight: 250,
             pinned: true,
             centerTitle: true,
-            backgroundColor: appBarRengi,
+            backgroundColor: Colors.blue.shade400,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                widget.secilenBurc.burcAdi + ' Burcu ve Özellikleri',
+                secilenBurc.burcAdi + ' Burcu ve Özellikleri',
                 style: TextStyle(color: Colors.white),
               ),
               background: Image.asset(
-                'images/' + widget.secilenBurc.burcBuyukResim,
+                'images/' + secilenBurc.burcBuyukResim,
                 fit: BoxFit.cover,
               ),
             ),
           ),
           SliverToBoxAdapter(
-            child: SingleChildScrollView(
-              child: Text(widget.secilenBurc.burcDetayi),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    secilenBurc.burcAdi + ' Burcu',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue.shade800,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    secilenBurc.burcTarihi,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.blue.shade600,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    secilenBurc.burcDetayi,
+                    style: TextStyle(
+                      fontSize: 16,
+                      height: 1.5,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
-  }
-
-  void appBarRengiBul() async {
-    _generator = await PaletteGenerator.fromImageProvider(
-        AssetImage('images/' + widget.secilenBurc.burcBuyukResim));
-    appBarRengi = _generator.dominantColor!.color;
-    setState(() {});
   }
 }
