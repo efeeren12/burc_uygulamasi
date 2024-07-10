@@ -1,4 +1,4 @@
-import 'package:burc_uygulamasi/burclistesi.dart';
+import 'package:burc_uygulamasi/burc_listesi.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
