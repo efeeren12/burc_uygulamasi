@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class BurcDetay extends StatelessWidget {
   final Burc secilenBurc;
-  const BurcDetay({required this.secilenBurc, Key? key}) : super(key: key);
+  const BurcDetay({required this.secilenBurc, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class BurcDetay extends StatelessWidget {
         slivers: [
           SliverAppBar(
             leading: IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.white, size: 32),
+              icon: const Icon(Icons.arrow_back, color: Colors.white, size: 32),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -24,7 +24,7 @@ class BurcDetay extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 secilenBurc.burcAdi + ' Burcu ve Özellikleri',
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
               background: Image.asset(
                 'images/' + secilenBurc.burcBuyukResim,
@@ -46,7 +46,7 @@ class BurcDetay extends StatelessWidget {
                       color: Colors.blue.shade800,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     secilenBurc.burcTarihi,
                     style: TextStyle(
@@ -55,10 +55,10 @@ class BurcDetay extends StatelessWidget {
                       color: Colors.blue.shade600,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     secilenBurc.burcDetayi,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       height: 1.5,
                       color: Colors.black87,

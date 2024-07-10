@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class BurcListesi extends StatelessWidget {
   late List<Burc> tumBurclar;
-  BurcListesi() {
+  BurcListesi({super.key}) {
     tumBurclar = veriKaynaginiHazirla();
   }
 
@@ -38,9 +38,9 @@ List<Burc> veriKaynaginiHazirla() {
     var burcAdi = Strings.BURC_ADLARI[i];
     var burcTarih = Strings.BURC_TARIHLERI[i];
     var burcDetay = Strings.BURC_GENEL_OZELLIKLERI[i];
-    var burcKucukResim = Strings.BURC_ADLARI[i].toLowerCase() + '${i + 1}.png';
+    var burcKucukResim = '${Strings.BURC_ADLARI[i].toLowerCase()}${i + 1}.png';
     var burcBuyukResim =
-        Strings.BURC_ADLARI[i].toLowerCase() + '_buyuk' + '${i + 1}.png';
+        '${Strings.BURC_ADLARI[i].toLowerCase()}_buyuk${i + 1}.png';
     Burc eklenecekBurc =
         Burc(burcAdi, burcTarih, burcDetay, burcKucukResim, burcBuyukResim);
     gecici.add(eklenecekBurc);

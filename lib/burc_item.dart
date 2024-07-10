@@ -4,7 +4,7 @@ import 'burc_detay.dart';
 
 class BurcItem extends StatelessWidget {
   final Burc listelenenBurc;
-  const BurcItem({Key? key, required this.listelenenBurc}) : super(key: key);
+  const BurcItem({super.key, required this.listelenenBurc});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,6 @@ class BurcItem extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
             onTap: () {
-              onTap:
               () {
                 Navigator.push(
                   context,
@@ -42,7 +41,7 @@ class BurcItem extends StatelessWidget {
                 Text(listelenenBurc.burcAdi, style: myTextStyle.headlineMedium),
             subtitle:
                 Text(listelenenBurc.burcTarihi, style: myTextStyle.bodyLarge),
-            trailing: Icon(Icons.arrow_forward_ios, color: Colors.blue),
+            trailing: const Icon(Icons.arrow_forward_ios, color: Colors.blue),
           ),
         ),
       ),
